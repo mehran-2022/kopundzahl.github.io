@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mehran</title>
+    <style>
+    .message{
+        height: 130px;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        background-color: rgb(219, 213, 73);
+        margin-top: 50px auto;
+        margin: bottom 20px; 
+       padding-left: 30px;
+       padding-right: 30px;
+       padding-top: 20px;
+       padding-bottom: 20px;
+        border: 1px solid rgb(0, 0, 0);
+        border-radius: 3rem;
+        font-size: 20px;
+        color: rgb(109, 101, 101);
+        box-shadow: inset 1px 0px 25px 11px rgba(0,0,0,0.77);
+        
+    }
+    #b1{
+        margin-top: 50px ;
+        margin-left: 20px;
+        margin-right: 20px;
+        
+    }
+    #bb1{
+        
+        background-color: rgba(67, 63, 63, 0.371);
+        padding: 40px;
+        padding-left: 40px;
+        padding-right: 40px;
+        font-size: 19px;
+        border:none ;
+        border-radius: 90px;
+        box-shadow:  inset 1px 0px 22px 4px rgba(0, 230, 238, 0.77);
+     
+     
+       
+    }
+    #bb2{
+       
+    
+        background-color: rgba(67, 63, 63, 0.371);
+        padding: 40px;
+        padding-left: 40px;
+        padding-right: 40px;
+        font-size: 19px;
+        border:none ;
+        border-radius: 90px;
+        box-shadow: inset  1px 0px 22px 4px rgba(0, 230, 238, 0.77);
+    }
+    #div1{
+        margin-top: 290px;
+        display: flex;
+        justify-content:space-between;
+        text-align: center;
+        margin-left: 10px;
+        margin-right: 10px;
+        background-color: rgb(227, 211, 62);
+        border-radius: 90px;
+        padding: 20px;
+        
+        height: 100px;
+        box-shadow:   1px 0px 25px 11px rgba(248, 245, 245, 0.77);
+    }
+    </style>
+</head>
+<body id="b1" >
+    <div class="message">Kopf oder Zahl?</div>
+    <div id="div1">
+    <button type="button" id="bb1">Kopf</button>
+    <button type="button" id="bb2">Zahl</button>
+</div>
+    <script>
+
+        const coinArray=["Kopf","Zahl"];
+        let score =["0","0"]
+const messeage=document.querySelector(".message");
+const buttons = document.querySelectorAll("button");
+console.log(buttons);
+for(let i=0 ; i<buttons.length;i++){
+    console.log(buttons[i]);
+    buttons[i].addEventListener("click",tossCoin);{
+
+    }
+    function tossCoin(e){
+        let playerGuess = e.target.innerText
+        let computerToss = Math.floor(Math.random()*2);
+        let computerGuess = coinArray[computerToss];
+        messeage.innerHTML="Computer Hat : "+computerGuess +"  Ausgewählt.<br>";
+        messeage.style.color="gray";
+        let output;
+        if(playerGuess===computerGuess){
+            output= "  Jawoll Sie haben gewonnen 🥳.";
+            score[0]++;
+            messeage.style.backgroundColor=("rgb(219,213,73)")
+        }else{
+            output=" Schade Sie haben verkackt 🫣.";
+            score[1]++;
+            messeage.style.backgroundColor=("rgb(410,32,11)");
+            messeage.style.color="white";
+        }
+        messeage.innerHTML+= output+ "<br> Spiler :"+score[0]+ "<br> Computer :"+score[1];
+    }
+}
+document.getElementById("b1").style.backgroundColor=("gray")
+    </script>
+</body>
+</html>
